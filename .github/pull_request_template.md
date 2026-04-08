@@ -15,3 +15,8 @@ Co-authored-by: Peter Selva <peterselva.p@icanio.com>
 
 
 This must be included in the final squash commit message.
+
+## Checklist
+- [ ] PR title includes issue number
+- [ ] Co-authors added (if applicable)
+- [ ] Code reviewed
