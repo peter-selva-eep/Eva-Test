@@ -19,7 +19,7 @@ jobs:
 
       - name: Validate PR title
         run: |
-          [[ ! "${{ github.event.pull_request.title }}" =~ (#\d+|\b\d+\b) ]]
+          if [[ ! "${{ github.event.pull_request.title }}" =~ [0-9]+ ]]; then
             echo "❌ PR title must include issue number"
             exit 1
           fi
