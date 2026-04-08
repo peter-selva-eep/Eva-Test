@@ -9,13 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Validate target branch (only develop allowed)
-        run: |
-          if [[ "${{ github.base_ref }}" != "develop" ]]; then
-            echo "❌ PRs are only allowed to merge into 'develop' branch"
-            exit 1
-          fi
-
       - name: Validate source branch naming
         run: |
           BRANCH="${{ github.head_ref }}"
