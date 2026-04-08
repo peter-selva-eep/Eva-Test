@@ -10,9 +10,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check for merge commits
+      - name: Block merge commits
         run: |
           if git log --merges origin/${{ github.base_ref }}..HEAD | grep .; then
             echo "❌ Merge commits are not allowed"
+            exit 1
+          fi
+
+      - name: Validate PR title
+        run: |
+          if [[ ! "${{ github.event.pull_request.title }}" =~ \(#.*\) ]]; then
+            echo "❌ PR title must include issue number"
             exit 1
           fi
